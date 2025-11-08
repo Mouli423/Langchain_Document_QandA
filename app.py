@@ -45,7 +45,8 @@ if "vectors" not in st.session_state:
     st.session_state.vectors = None
 
 prompt = ChatPromptTemplate.from_messages([
-    ("system", "Answer the user queries based on the provided context only. Please provide accurate responses."),
+    ("system", "Answer the user queries based on the provided context only."
+    " Please provide accurate responses."),
     ("human", """<context>
 {context}
 <context>
@@ -83,23 +84,14 @@ try:
         if st.session_state.vectors is None:
             with st.spinner("Creating document embeddings before answering..."):
                 create_vector_embeddings()  
-
-
-        if st.session_state.vectors is not None:
+        if st.session_state.vectors:
             retriever = st.session_state.vectors.as_retriever()
-        else:
-            st.warning("Please click the 'Embeddings' button before asking a question.")
-
-        document_chain=create_stuff_documents_chain(llm,prompt)
-
-
-        retrieval_chain=create_retrieval_chain(retriever,document_chain)
-
-
-        start=time.process_time()
-        response=retrieval_chain.invoke({"input":user_prompt})
-        print(f"Response Time :{time.process_time()-start}")
-        st.write(response["answer"])
+            document_chain=create_stuff_documents_chain(llm,prompt)
+            retrieval_chain=create_retrieval_chain(retriever,document_chain)
+            start=time.process_time()
+            response=retrieval_chain.invoke({"input":user_prompt})
+            print(f"Response Time :{time.process_time()-start}")
+            st.write(response["answer"])
 
 
 except Exception as e:

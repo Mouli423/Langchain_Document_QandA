@@ -10,3 +10,4 @@ pypdf
 FAISS-cpu
 langchain_text_splitters
 langchain-classic
+sentence-transformers

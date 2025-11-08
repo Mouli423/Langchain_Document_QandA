@@ -73,7 +73,7 @@ def create_vector_embeddings():
             st.error(f'Failed to create embeddings :{e}')
             st.session_state.vectors=None
 
-st.title("RAG document Q and A with groq model, huggingface embeddings and FAISS Vector Database")
+st.title("RAG Document Q and A with Groq model, Huggingface Embeddings and FAISS Vector DB")
 
 user_prompt=st.text_input("Enter your questions from the research papers")
 

@@ -73,7 +73,7 @@ def create_vector_embeddings():
             st.error(f'Failed to create embeddings :{e}')
             st.session_state.vectors=None
 
-st.title("Transformer & LLM Research Q&A Assistant (LangChain RAG)")
+st.title("Transformer & LLM Research papers Q&A Assistant (LangChain RAG)")
 
 user_prompt=st.text_input("Enter your questions from the research papers")
 

@@ -21,7 +21,7 @@ groq_api_key=os.getenv("GROQ_API_KEY")
 
 with st.expander("ℹ️ About this App"):
     st.markdown("""
-    **Document Q&A System (RAG-based)**
+    **Research papers Q&A System (RAG-based)**
     
     This application combines *Retrieval-Augmented Generation (RAG)* with state-of-the-art **Large Language Models (LLMs)** 
     to provide accurate, context-aware answers from uploaded research papers.
@@ -73,7 +73,7 @@ def create_vector_embeddings():
             st.error(f'Failed to create embeddings :{e}')
             st.session_state.vectors=None
 
-st.title("RAG Document Q and A with Groq model, Huggingface Embeddings and FAISS Vector DB")
+st.title("Transformer & LLM Research Q&A Assistant (LangChain RAG)")
 
 user_prompt=st.text_input("Enter your questions from the research papers")
 
